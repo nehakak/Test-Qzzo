@@ -1,0 +1,21 @@
+<h1> Login Page </h1>
+<br>
+<br>
+
+<form method="POST">
+    {% csrf_token %} 
+
+    <label for="EmailID">EmailID :</label>
+    <input type="EmailID" id="EmailID" name="EmailID"><br>
+    <br>
+
+    <label for="Password">Password:</label>
+    <input type="Password" id="Password" name="Password"><br>
+    <br>
+
+
+    <button type = "submit"> Login </button>
+
+</form>
+ 
+<h4><a href="http://127.0.0.1:8000/">SIGN UP</a> </h4>

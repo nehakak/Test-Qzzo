@@ -1,0 +1,80 @@
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#submit").click(function(){
+        if($("#Password").val().length < 8){
+            alert("Password should be greated than 8 characters.");
+        }
+        else if($("#UniqueID").val().length > 0 && $("#UniqueID").val().length != 6){
+            alert("Unique ID should be 6 charactes long!");
+        }
+        else if($("#Password").val() != $("#Confirm_Password").val()){
+            alert("Password and confirm password do not match!");
+        }
+        else if($.isNumeric($("#Age").val()) != true){
+            alert("Age should be in Integer");
+        }
+        else if($("#Age").val() < 0  && $("#Age").val() > 110)
+        {
+            alert("Age should be in Integer");
+        }
+        else{
+            $("#SignupForm").submit();
+        }
+    });
+});
+</script>
+
+<center><h1> SignUp Page </h1> </center>
+
+<h2>{{ error }}</h2> 
+<form method="POST" id = 'SignupForm'>
+    {% csrf_token %}
+
+
+    <label for="Image">Image :</label>
+    <input type="text" id="Image" name="Image"><br>
+    <br>
+
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname" required><br>
+    <br>
+
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"><br>
+    <br>
+
+    <label for="Age">Age:</label>
+    <input type="text" id="Age" name="Age" required>
+    <br>
+    <br>
+
+    <label for="UniqueID">UniqueID :</label>
+    <input type="text" id="UniqueID" name="UniqueID">
+    <br>
+    <br>
+
+    <label for="EmailID">Email ID:</label>
+    <input type="text" id="EmailID" name="EmailID" required>
+    <br>
+    <br>
+
+    <label for="Password">Password:</label>
+    <input type="text" id="Password" name="Password" required>
+    <br>
+    <br>
+
+    <label for="Confirm_Password">Confirm_Password:</label>
+    <input type="text" id="Confirm_Password" name="Confirm_Password" required>
+    <br>
+    <br>
+</form>
+<button id = "submit"> Sign up </button>
+<br>
+<br>
+<br>
+
+
+<h4><a href="http://127.0.0.1:8000/login/">LOGIN</a></h4>

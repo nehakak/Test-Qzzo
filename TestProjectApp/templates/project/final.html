@@ -1,0 +1,48 @@
+{% csrf_token %} 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<form action="{% url 'LogOut' %}" method="POST">
+    
+    {% csrf_token %}
+
+   
+    <button type = "submit", id="LogOut"> LogOut </button>
+
+</form>
+
+
+<h1> Users DATA </h1>
+
+
+<br>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+<table style="width:100%">
+<tr>
+<td>First Name</td>
+<td>Last Name</td>
+<td>Age</td>
+<td>Login ID</td>
+<td>Email ID</td>
+
+</tr>
+
+
+
+<tr>
+    <td>{{ user_details.fname }}</td>
+    <td>{{ user_details.lname }}</td>
+    <td>{{ user_details.Age }}</td>
+    <td>{{ user_details.LoginID }}</td>
+    <td>{{ user_details.EmailID }}</td>
+ 
+</tr>
+</table>
